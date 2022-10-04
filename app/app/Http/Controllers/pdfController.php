@@ -14,9 +14,11 @@ class pdfController extends Controller
         // $pdf->loadHTML('<h1>Test</h1>');
         // return $pdf->stream();
 
-        $data = "Shishir Bhuiyan";
-
-        $pdf = Pdf::loadView('hellopdf');
-        return $pdf->download('invoice.pdf');
+        $name = "Shishir Bhuiyan";
+        $email = "Shishir@gmail.com";
+        // data should be pass as an array
+        // $pdf = Pdf::loadView('hellopdf',compact('data')); OR pass by key value array pair
+        $pdf = Pdf::loadView('hellopdf',['name'=>$name,'email'=>$email]);
+        return $pdf->download('laravels'.time().'.pdf');
     }
 }
