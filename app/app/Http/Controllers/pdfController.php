@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Str;
 
 class pdfController extends Controller
 {
@@ -19,6 +20,6 @@ class pdfController extends Controller
         // data should be pass as an array
         // $pdf = Pdf::loadView('hellopdf',compact('data')); OR pass by key value array pair
         $pdf = Pdf::loadView('hellopdf',['name'=>$name,'email'=>$email]);
-        return $pdf->download('laravels'.time().'.pdf');
+        return $pdf->download('laravels'.Str::random('10').'.pdf');
     }
 }

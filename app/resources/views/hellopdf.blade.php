@@ -1,207 +1,239 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <style type="text/css">
-        @media screen {
-            @font-face {
-                font-family: 'Lato';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-            }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-            @font-face {
-                font-family: 'Lato';
-                font-style: normal;
-                font-weight: 700;
-                src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-            }
+    <style>
+        /*
+  Common invoice styles. These styles will work in a browser or using the HTML
+  to PDF anvil endpoint.
+*/
 
-            @font-face {
-                font-family: 'Lato';
-                font-style: italic;
-                font-weight: 400;
-                src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
-            }
+body {
+  font-size: 16px;
+}
 
-            @font-face {
-                font-family: 'Lato';
-                font-style: italic;
-                font-weight: 700;
-                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-            }
-        }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-        /* CLIENT-SPECIFIC STYLES */
-        body,
-        table,
-        td,
-        a {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
+table tr td {
+  padding: 0;
+}
 
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
+table tr td:last-child {
+  text-align: right;
+}
 
-        img {
-            -ms-interpolation-mode: bicubic;
-        }
+.bold {
+  font-weight: bold;
+}
 
-        /* RESET STYLES */
-        img {
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-        }
+.right {
+  text-align: right;
+}
 
-        table {
-            border-collapse: collapse !important;
-        }
+.large {
+  font-size: 1.75em;
+}
 
-        body {
-            height: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-        }
+.total {
+  font-weight: bold;
+  color: #fb7578;
+}
 
-        /* iOS BLUE LINKS */
-        a[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
-        }
+.logo-container {
+  margin: 20px 0 70px 0;
+}
 
-        /* MOBILE STYLES */
-        @media screen and (max-width:600px) {
-            h1 {
-                font-size: 32px !important;
-                line-height: 32px !important;
-            }
-        }
+.invoice-info-container {
+  font-size: 0.875em;
+}
+.invoice-info-container td {
+  padding: 4px 0;
+}
 
-        /* ANDROID CENTER FIX */
-        div[style*="margin: 16px 0;"] {
-            margin: 0 !important;
-        }
+.client-name {
+  font-size: 1.5em;
+  vertical-align: top;
+}
 
-        #welcome{
-           color: red;
-           font-weight: bold;
-        }
+.line-items-container {
+  margin: 70px 0;
+  font-size: 0.875em;
+}
+
+.line-items-container th {
+  text-align: left;
+  color: #999;
+  border-bottom: 2px solid #ddd;
+  padding: 10px 0 15px 0;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.line-items-container th:last-child {
+  text-align: right;
+}
+
+.line-items-container td {
+  padding: 15px 0;
+}
+
+.line-items-container tbody tr:first-child td {
+  padding-top: 25px;
+}
+
+.line-items-container.has-bottom-border tbody tr:last-child td {
+  padding-bottom: 25px;
+  border-bottom: 2px solid #ddd;
+}
+
+.line-items-container.has-bottom-border {
+  margin-bottom: 0;
+}
+
+.line-items-container th.heading-quantity {
+  width: 50px;
+}
+.line-items-container th.heading-price {
+  text-align: right;
+  width: 100px;
+}
+.line-items-container th.heading-subtotal {
+  width: 100px;
+}
+
+.payment-info {
+  width: 38%;
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+
+.footer {
+  margin-top: 100px;
+}
+
+.footer-thanks {
+  font-size: 1.125em;
+}
+
+.footer-thanks img {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  width: 16px;
+  margin-right: 4px;
+}
+
+.footer-info {
+  float: right;
+  margin-top: 5px;
+  font-size: 0.75em;
+  color: #ccc;
+}
+
+.footer-info span {
+  padding: 0 5px;
+  color: black;
+}
+
+.footer-info span:last-child {
+  padding-right: 0;
+}
+
+.page-container {
+  display: none;
+}
+
     </style>
 </head>
-
-<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
-    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> We're thrilled to have you here! Get ready to dive into your new account.
-    </div>
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <!-- LOGO -->
+<body>
+    <div class="page-container">
+        Page
+        <span class="page"></span>
+        of
+        <span class="pages"></span>
+      </div>
+      
+      <div class="logo-container">
+        <img
+          style="height: 18px"
+          src="https://app.useanvil.com/img/email-logo-black.png"
+        >
+      </div>
+      
+      <table class="invoice-info-container">
         <tr>
-            <td bgcolor="#FFA73B" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
-                    </tr>
-                </table>
-            </td>
+          <td rowspan="2" class="client-name">
+            {{ $name }}
+          </td>
+          <td>
+            Anvil Co
+          </td>
         </tr>
         <tr>
-            <td bgcolor="#FFA73B" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 id="welcome" style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1><br>{{ $name }} <br>{{ $email }} <br> <img src="https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;" />
-                        </td>
-                    </tr>
-                </table>
-            </td>
+          <td>
+            123 Main Street
+          </td>
         </tr>
         <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">We're excited to have you get started. First, you need to confirm your account. Just press the button below.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Confirm Account</a></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr> <!-- COPY -->
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">If that doesn't work, copy and paste the following link in your browser:</p>
-                        </td>
-                    </tr> <!-- COPY -->
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;"><a href="#" target="_blank" style="color: #FFA73B;">https://bit.li.utlddssdstueincx</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">If you have any questions, just reply to this email&mdash;we're always happy to help out.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Cheers,<br>BBB Team</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+          <td>
+            Invoice Date: <strong>May 24th, 2024</strong>
+          </td>
+          <td>
+            San Francisco CA, 94103
+          </td>
         </tr>
         <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more help?</h2>
-                            <p style="margin: 0;"><a href="#" target="_blank" style="color: #FFA73B;">We&rsquo;re here to help you out</a></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+          <td>
+            Invoice No: <strong>12345</strong>
+          </td>
+          <td>
+            {{ $email }}
+          </td>
         </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;"> <br>
-                            <p style="margin: 0;">If these emails get annoying, please feel free to <a href="#" target="_blank" style="color: #111111; font-weight: 700;">unsubscribe</a>.</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+      </table>
+      
+      
+      <table class="line-items-container">
+        <thead>
+          <tr>
+            <th class="heading-quantity">Qty</th>
+            <th class="heading-description">Description</th>
+            <th class="heading-price">Price</th>
+            <th class="heading-subtotal">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>Blue large widgets</td>
+            <td class="right">$15.00</td>
+            <td class="bold">$30.00</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Green medium widgets</td>
+            <td class="right">$10.00</td>
+            <td class="bold">$40.00</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Red small widgets with logo</td>
+            <td class="right">$7.00</td>
+            <td class="bold">$35.00</td>
+          </tr>
+          <tr>
+            <td class="bold" colspan="3">Total Due</td>
+            <td class="bold">$35.00</td>
+          </tr>
+        </tbody>
+      </table>
+      
 </body>
-
 </html>
