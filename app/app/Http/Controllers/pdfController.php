@@ -31,18 +31,6 @@ class pdfController extends Controller
 
     }
 
-    function small(){
-
-        $name = "Shishir Bhuiyan";
-        $email = "Shishir@gmail.com";
-
-        // unique pdf name
-        $pdfName = 'pdfFolder/small_'.Str::random('10').'.pdf';
-
-        // Just save in specific folder
-        Pdf::loadView('small',['name'=>$name,'email'=>$email])->save(public_path($pdfName));
-
-    }
 
     function pdf(){
 
@@ -52,8 +40,17 @@ class pdfController extends Controller
         // unique pdf name
         $pdfName = 'pdfFolder/pdf_'.Str::random('10').'.pdf';
 
+
+        $path = public_path().'/logo.png';
+        $type = pathinfo($path,PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $image = 'data:image/'.$type.';base64,'.base64_encode($data);
+
+
+
+
         // Just save in specific folder
-        Pdf::loadView('pdf',['name'=>$name,'email'=>$email])->save(public_path($pdfName));
+        Pdf::loadView('pdf',['name'=>$name,'email'=>$email,'image'=>$image])->save(public_path($pdfName));
 
     }
 }

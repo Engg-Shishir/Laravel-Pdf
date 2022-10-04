@@ -18,6 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/small',[pdfController::class,'small']);
 Route::get('/pdf',[pdfController::class,'pdf']);
 Route::get('/one',[pdfController::class,'index']);
