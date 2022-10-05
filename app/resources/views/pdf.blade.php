@@ -126,7 +126,9 @@
 						<table>
 							<tr>
 								<td class="title">
+									
 									{{-- <img src="https://i.postimg.cc/ZY1BkPsB/logo.png" style="width: 100%; max-width: 300px" /> --}}
+
 								   <img src="{{ $image }}" style="width: 100%; max-width: 300px" />
 								</td>
 

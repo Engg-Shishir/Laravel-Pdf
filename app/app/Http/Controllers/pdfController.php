@@ -40,7 +40,7 @@ class pdfController extends Controller
         // unique pdf name
         $pdfName = 'pdfFolder/pdf_'.Str::random('10').'.pdf';
 
-
+        // process for send local image in pdf
         $path = public_path().'/logo.png';
         $type = pathinfo($path,PATHINFO_EXTENSION);
         $data = file_get_contents($path);
